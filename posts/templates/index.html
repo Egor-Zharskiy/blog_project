@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles.css' %}"/>
+    <title>Main page</title>
+</head>
+<body>
+<div class="wrapper">
+    <header class="header">
+        <h1 class="logo">Egor's Blog</h1>
+        <nav class="nav">
+            <ul>
+                <li><a href="{% url 'posts:index' %}">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="{% url 'users:login' %}">Вход</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="sidebar">
+        <h3>Категории</h3>
+        <ul class="category-list">
+            <li><a href="{% url 'posts:index' %}">Все</a></li>
+            {% for category in categories %}
+            <li><a href="{% url 'posts:category' category.id %}">{{ category.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <main class="content">
+        {% for post in posts%}
+        <article class="post">
+            <div class="post-list-image-container">
+                <img src="{{ post.image.url }}" alt="" class="post-list-image">
+            </div>
+            <a href="{% url 'article' post.id %}" class="post-title">{{ post.title }}</a>
+            <p class="post-meta">{{ post.created_timestamp }}</p>
+            <p class="post-category">{{ post.category }}</p>
+            <!--        <a href="{% url 'article' post.id %}" class="post-category">{{ post.category }}</a>-->
+
+
+            <p class="post-body-preview">
+                {% with words=30 %}
+                {{ post.description|truncatewords:words }}
+                {% endwith %}
+            </p>
+
+        </article>
+        <hr class="post-divider"> <!-- Горизонтальный разделитель -->
+
+        {% endfor %}
+
+    </main>
+    <footer class="footer">
+        <p>&copy; 2023 Egor's Blog. All rights reserved.</p>
+    </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,159 @@
+/* Reset some default styles */
+body, h1, h2, h3, p, ul, li, a {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    position: relative; /* Add this line */
+    min-height: 100vh; /* Add this line */
+}
+
+/* Header */
+.header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+}
+
+.nav ul {
+    list-style: none;
+}
+
+.nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Content */
+.content {
+    padding: 20px;
+}
+
+.post {
+    margin-bottom: 40px;
+}
+
+.post-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    text-color: black
+    background-color: #fff;
+    color: #000;
+}
+
+.post-meta {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.post-body {
+    line-height: 1.6;
+}
+
+/* Footer */
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+
+.post-list-image-container {
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.post-list-image {
+    max-width: 150px; /* Максимальная ширина */
+    max-height: 150px; /* Максимальная высота */
+    width: auto;
+    height: auto;
+    float: left;
+}
+
+.post-body-preview {
+    max-height: 100px; /* Максимальная высота */
+    overflow: hidden; /* Скрываем избыточный текст */
+}
+
+.post-category {
+    float: right;
+    font-weight: bold;
+    color: #fff; /* Цвет текста */
+    background-color: #666; /* Фоновый цвет */
+    padding: 5px 10px; /* Отступы */
+    border-radius: 5px; /* Закругленные углы */
+    margin-top: -10px;
+}
+
+
+/* ... (предыдущий код стилей) ... */
+
+/* Обертка для всего контента */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Блок со списком категорий */
+.sidebar {
+    width: 100%; /* Занимает всю ширину */
+    background-color: #f4f4f4;
+    padding: 20px;
+    box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовок списка категорий */
+.sidebar h3 {
+    margin-bottom: 10px;
+}
+
+/* Список категорий */
+.category-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.category-list li {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+/* Стили для каждой категории */
+.category-list a {
+    text-decoration: none;
+    color: #333;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.category-list a:hover {
+    background-color: #ddd;
+}
+
+/* ... (остальной код стилей) ... */
