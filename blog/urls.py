@@ -10,7 +10,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('posts.urls', namespace='posts')),
     path('article/<int:pk>', article, name='article'),
-    path('login/', include('users.urls', namespace='login'))
+    path('users/', include('users.urls', namespace='users'))
 ]
 
 if settings.DEBUG:

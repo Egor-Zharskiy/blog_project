@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'profile.css' %}">
+    <title>Profile</title>
+</head>
+<body>
+<header class="header">
+    <h1 class="logo">User Profile</h1>
+    <nav class="nav">
+        <ul>
+            <li><a href="{% url 'posts:index' %}">Home</a></li>
+            <li><a href="{% url 'users:profile' %}">Profile</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="content">
+    <h2>Edit Profile</h2>
+    <div class="profile-image">
+        <img src="{{user.image.url}}">
+        <!--        <img src="{{ user.profile.image.url }}" alt="Profile Image">-->
+    </div>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save Changes</button>
+    </form>
+</main>
+
+<footer class="footer">
+    <p>&copy; 2023 User Profile. All rights reserved.</p>
+</footer>
+</body>
+</html>

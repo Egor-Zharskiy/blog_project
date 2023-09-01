@@ -10,13 +10,16 @@
 <body>
 <div class="login-container">
     <div class="login-form">
-        <h3>Login</h3>
-        <form action="{% users:login %}" method="post">
+        <h3>Вход</h3>
+        <form action="{% url 'users:login' %}" method="post">
             {% csrf_token %}
-            <input type="text" name="username" placeholder="Username">
-            <input type="password" name="password" placeholder="Password">
+            {{ form.as_p }}
+            <!--            <input type="text" name="username" placeholder="Username">-->
+            <!--            <input type="password" name="password" placeholder="Password">-->
             <button type="submit">Войти</button>
+
         </form>
+        <a href="{% url 'users:registration' %}" class="" >Зарегистрироваться</a>
     </div>
 </div>
 </body>

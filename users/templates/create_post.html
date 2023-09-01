@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'create_post.css' %}">
+    <title>Create Post</title>
+</head>
+<body>
+<div class="wrapper">
+    <header class="header">
+        <h1 class="logo">Create New Post</h1>
+        <nav class="nav">
+            <ul>
+                <li><a href="{% url 'posts:index' %}">Home</a></li>
+                <li><a href="{% url 'users:profile' %}">Profile</a></li>
+                <li><a href="{% url 'users:logout' %}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content">
+        <h2>Create New Post</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Create Post</button>
+        </form>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2023 Create Post. All rights reserved.</p>
+    </footer>
+</div>
+</body>
+</html>

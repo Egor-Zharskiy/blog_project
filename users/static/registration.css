@@ -1,7 +1,7 @@
-/* ... (предыдущий код стилей) ... */
+/* ... (ваш текущий стиль) ... */
 
-/* Стили для формы авторизации */
-.login-form {
+/* Стили для формы регистрации */
+.registration-form {
     width: 300px;
     margin: 20px auto;
     padding: 20px;
@@ -9,24 +9,24 @@
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
 }
 
-.login-form h3 {
+.registration-form h3 {
     text-align: center;
     margin-bottom: 10px;
 }
 
-.login-form form {
+.registration-form form {
     display: flex;
     flex-direction: column;
 }
 
-.login-form input {
+.registration-form input {
     margin-bottom: 10px;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-.login-form button {
+.registration-form button {
     background-color: #333;
     color: #fff;
     border: none;
@@ -36,11 +36,8 @@
     transition: background-color 0.3s;
 }
 
-.login-form button:hover {
+.registration-form button:hover {
     background-color: #444;
 }
 
 /* ... (остальной код стилей) ... */
-.a {
-    text-align: center;
-}

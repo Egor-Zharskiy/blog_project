@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'profile_posts.css' %}">
+    <title>My Posts</title>
+</head>
+<body>
+<div class="wrapper">
+    <header class="header">
+        <h1 class="logo">My Posts</h1>
+        <nav class="nav">
+            <ul>
+                <li><a href="{% url 'posts:index' %}">Home</a></li>
+                <li><a href="{% url 'users:profile' %}">Profile</a></li>
+                <li><a href="{% url 'users:logout' %}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content">
+        <h2>My Posts</h2>
+                <a href="{% url 'users:create_post' %}" class="add-post-button">Add New Post</a>
+
+        {% for post in posts %}
+        <article class="post">
+            <div class="post-list-image-container">
+                <img src="{{ post.image.url }}" alt="" class="post-list-image">
+            </div>
+            <a href="{% url 'article' post.id %}" class="post-title">{{ post.title }}</a>
+            <p class="post-meta">{{ post.created_timestamp }}</p>
+            <p class="post-category">{{ post.category }}</p>
+            <p class="post-body-preview">
+                {% with words=30 %}
+                {{ post.description|truncatewords:words }}
+                {% endwith %}
+            </p>
+        </article>
+        <hr class="post-divider"> <!-- Горизонтальный разделитель -->
+        {% endfor %}
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2023 My Posts. All rights reserved.</p>
+    </footer>
+</div>
+</body>
+</html>
